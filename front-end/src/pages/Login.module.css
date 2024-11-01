@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.login{
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://bit.ly/2E3scwW");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: screen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    color: red;
+    display: inline;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+    position: fixed;
+    top: 1% ;
+    left: 3% ;
+}
+
+.login_page{
+    width: 25%;
+    padding: 3%;
+    background-color: rgb(0, 0, 0,0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    color: white;
+}
+
+.input {
+    background-color: #333;
+    border: transparent;
+    font-size:medium;
+    width: 100%;
+    height: 6.5vh;
+    margin-bottom: 5%;
+    padding-left: 10px;
+    color: white;
+    border-radius:5px;
+}
+
+.button{
+    width: 100%;
+    height: 6.5vh;
+    font-size: medium;
+    color: white;
+    background-color: red;
+    border: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.last{
+    color: gray;
+}
+.last button{
+    background-color: transparent;
+    color: gray;
+    border: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.last button:hover{
+    color: white;
+}
+
+@media (min-width: 300px) and (max-width: 350px) {
+    .input{
+        font-size: smaller;
+    }
+}
