@@ -73,7 +73,8 @@
 }
 
 @media (min-width: 300px) and (max-width: 350px) {
-    .input{
-        font-size: smaller;
+    .login_page{
+        width: 80%;
+        padding: 10%;
     }
 }
