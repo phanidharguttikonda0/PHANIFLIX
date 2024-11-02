@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import InValidCredentials from './InValidCredentials';
 import css from './Login.module.css';
 import Logo from './Logo';
 function Signup(props) {
@@ -7,6 +8,7 @@ function Signup(props) {
     const [password, setPassword] = useState("") ;
     const [confirmPassword, setConfirm] = useState("") ;
     const [mobile, setMobile] = useState("") ;
+    const [invalid, setinvalid] = useState(false) ;
     const navigate = useNavigate() ;
     
     return (
@@ -28,13 +30,20 @@ function Signup(props) {
                 }} />
                 <button className={css.button} onClick={
                     () => {
-                        props.setMail(gmail) ;
-                        navigate('/') ;
+                        if(gmail.length === 0){
+                            setinvalid(true) ;
+                        }else{
+                            props.setMail(gmail) ;
+                            navigate('/') ;
+                        }
                     }
                 }> Sign Up</button>
                 <h5 className={css.last}>  have an account <button onClick={() =>{
                     navigate('/login')
                 }}> Sign In</button></h5>
+                {
+                    invalid ? <InValidCredentials data={"details already exists"} setvalid={setinvalid}/> : console.log("")
+                }
             </div>
         </div>
     );
