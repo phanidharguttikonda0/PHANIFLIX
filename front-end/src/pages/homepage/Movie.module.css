@@ -1,0 +1,19 @@
+.movie{
+    display: inline-block;
+
+}
+
+.movie img{
+    width: 145px;
+    height: 207px;
+    cursor: pointer;
+}
+
+.movie img:hover{
+    width: 185px;
+    height: 250px;
+    transition: width 2s, height 4s;
+    transition-delay: 0.5s;
+    
+}
+

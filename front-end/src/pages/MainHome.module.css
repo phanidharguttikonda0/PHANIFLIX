@@ -1,0 +1,19 @@
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+    background-color: black;
+}
+.nav{
+    width: 5%;
+}
+
+.content{
+    width: 95%;
+    height: 100vh;
+    overflow: scroll;
+}
+.content::-webkit-scrollbar{
+    width: 0;
+}

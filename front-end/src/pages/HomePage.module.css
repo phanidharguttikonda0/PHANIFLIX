@@ -1,0 +1,24 @@
+.homepage {
+    overflow-y: scroll;
+    overflow-x: scroll;
+    width: 100%;
+    overflow: scroll;
+}
+
+
+
+.homepage::-webkit-scrollbar{
+    width: 0;
+}
+
+.adds{
+    width: 100% ;
+    z-index: 1;
+}
+
+.in{
+    width: 100%;
+}
+
+
+
