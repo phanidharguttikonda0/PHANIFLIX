@@ -1,0 +1,32 @@
+.bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    margin-top: 1%;
+    width: 90%;
+}
+.searchbar{
+    background-color: rgba(51, 51, 51, 0.8);
+    border-radius: 3px;
+    width: 70%;
+    font-size: medium;
+    color: white;
+    border: transparent;
+    height: 5vh;
+}
+
+.button{
+    width: 10%;
+    background-color: black;
+    border: transparent;
+    background-color: red;
+    height: 5vh;
+    border-radius: 5px;
+    margin-left: 1%;
+    color: white;
+}
+
