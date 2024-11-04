@@ -15,7 +15,7 @@ function Trailer(props) {
                     },
                 }} />
             <button onClick={() => {
-                props.setUrl(null) ;
+                    props.setUrl(null) ;
             }}> Close Player </button>
         </div>, document.getElementById('overlay-root') 
         )
