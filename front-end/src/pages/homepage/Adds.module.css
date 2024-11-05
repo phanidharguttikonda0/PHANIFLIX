@@ -69,7 +69,7 @@
     color: white;
 }
 
-@media (min-width: 280px) and (max-width: 340px){
+@media (min-width: 280px) and (max-width: 440px){
     .poster{
         height: 20vh;
         width: 60%;
@@ -89,4 +89,128 @@
     .str{
         font-size: x-small;
     }
+}
+
+@media (min-width: 440px) and (max-width: 550px){
+    .poster{
+        height: 25vh;
+        width: 70%;
+    }
+
+    .titleposter{
+        width: 60%;
+    }
+    .p , .t{
+    padding: 5px ;
+    font-size: x-small;
+    cursor: pointer;
+    }
+    .s{
+        font-size: small;
+    }
+    .str{
+        font-size: small;
+    }
+}
+
+@media (min-width: 550px) and (max-width: 650px){
+    .poster{
+        height: 30vh;
+        width: 75%;
+    }
+
+    .titleposter{
+        width: 80%;
+    }
+    .p , .t{
+    padding: 5px ;
+    font-size: x-small;
+    cursor: pointer;
+    }
+    .s{
+        font-size: small;
+    }
+    .str{
+        font-size: small;
+    }
+}
+
+@media (min-width: 650px) and (max-width: 750px){
+    .poster{
+        height: 30vh;
+        width: 75%;
+    }
+
+    .titleposter{
+        width: 80%;
+    }
+    .p , .t{
+    padding: 7px ;
+    font-size: small;
+    cursor: pointer;
+    }
+    .s{
+        font-size: small;
+    }
+    .str{
+        font-size: small;
+    }
+}
+
+@media (min-width: 750px) and (max-width: 850px){
+    .poster{
+        height: 35vh;
+        width: 70%;
+    }
+
+    .titleposter{
+        width: 80%;
+    }
+    .p , .t{
+    padding: 7px ;
+    font-size: small;
+    cursor: pointer;
+    }
+    .s{
+        font-size: small;
+    }
+    .str{
+        font-size: small;
+    }
+}
+
+@media (min-width: 850px) and (max-width: 950px){
+    .poster{
+        height: 45vh;
+        width: 70%;
+    }
+
+    .titleposter{
+        width: 80%;
+    }
+    
+}
+
+@media (min-width: 850px) and (max-width: 1050px){
+    .poster{
+        height: 50vh;
+        width: 70%;
+    }
+
+    .titleposter{
+        width: 80%;
+    }
+    
+}
+
+@media (min-width: 1050px) and (max-width: 1200px){
+    .poster{
+        height: 50vh;
+        width: 65%;
+    }
+
+    .titleposter{
+        width: 70%;
+    }
+    
 }
