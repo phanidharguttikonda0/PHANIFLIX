@@ -60,10 +60,12 @@
 
 .last{
     color: gray;
+    font-size: smaller;
+    margin-top: 1%;
 }
 .last button{
     background-color: transparent;
-    color: gray;
+    color: gray ;
     border: transparent;
     text-decoration: underline;
     cursor: pointer;

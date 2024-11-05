@@ -68,3 +68,25 @@
     background-color: red;
     color: white;
 }
+
+@media (min-width: 280px) and (max-width: 340px){
+    .poster{
+        height: 20vh;
+        width: 60%;
+    }
+
+    .titleposter{
+        width: 50%;
+    }
+    .p , .t{
+    padding: 4px ;
+    font-size: xx-small;
+    cursor: pointer;
+    }
+    .s{
+        font-size: x-small;
+    }
+    .str{
+        font-size: x-small;
+    }
+}
