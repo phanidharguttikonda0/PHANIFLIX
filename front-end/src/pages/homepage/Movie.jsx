@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import css from './Movie.module.css';
 import Trailer from "./Trailer";
 function Movie(props) {
-    const [url,setUrl] = useState(null) ;
+    const [url,setUrl] = useState(null) ; 
     return (
         <div className={css.movie}>
             <img src={`https://image.tmdb.org/t/p/w200${props.movie.poster_path}`} alt='Nothing Found' onClick={
