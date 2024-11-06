@@ -5,3 +5,9 @@
 .moviess{
     margin-bottom: 1%;
 }
+
+@media (min-width: 280px) and (max-width: 900px){
+    .moviess{
+        margin-bottom: 0px;
+    }
+}
