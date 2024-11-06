@@ -7,7 +7,7 @@ import search from '../Images/search.svg';
 import trending from '../Images/trending.svg';
 import css from './Nav.module.css';
 
-function Nav(props) {
+function Nav(props) { 
     const navigate = useNavigate() ;
     return (
         <div className={css.nav_bar}>

@@ -4,7 +4,7 @@ import css from './MainHome.module.css';
 import Nav from './Nav';
 
 function MainHome(props) {
-    return (
+    return ( 
         <div className={css.home}>
             <div className={css.nav}>
                 <Nav />
