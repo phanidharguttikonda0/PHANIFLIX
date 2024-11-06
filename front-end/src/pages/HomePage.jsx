@@ -14,12 +14,12 @@ function HomePage(props) {
                 <Carousel interval={10000} controls={false} indicators={true}>
                     <Carousel.Item>
                     <div className={css.in}>
-                    <Adds data={{poster: add, title: gk, imdb: 9.0, views: '10M+'}}/>
+                    <Adds data={{poster: add, title: gk, imdb: 9.0, views: '10M+'}} url={"gh3FyLT7WVg"}/>
                     </div>
                     </Carousel.Item>
                     <Carousel.Item>
                     <div className={css.in}>
-                    <Adds data={{poster: dookudu, title: title, imdb: 9.8, views: '50M+'}}/>
+                    <Adds data={{poster: dookudu, title: title, imdb: 9.8, views: '50M+'}} url={"ByjXIbg4hjw"}/>
                     </div>
                     </Carousel.Item>
                 </Carousel>

@@ -1,9 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 import imdb from '../../Images/imdb.png';
 import css from './Adds.module.css';
+import Trailer from './Trailer';
  
 function Adds(props) {
+    const [url, setUrl] = useState(null) ;
+
     console.log(props.data)
     return (
         <div className={css.ads}>
@@ -14,11 +17,22 @@ function Adds(props) {
                     <h6 className={css.str}> <span className={css.sd}>{props.data.views}</span> Streams</h6>
                 </div>
                 <div className={css.buttons}>
-                    <button className={css.p}>Play</button>
-                    <button className={css.t}>Watch Trailer</button>
+                    <button className={css.p} onClick={
+                        () =>{
+                            setUrl(props.url)
+                        }
+                    }>Play</button>
+                    <button className={css.t} onClick={
+                        () =>{
+                            setUrl(props.url)
+                        }
+                    }>Watch Trailer</button>
                 </div>
             </div>
             <img src={props.data.poster} alt="" className={css.poster}/>
+            {
+                url !== null ? <Trailer url={url} setUrl={setUrl}/> : console.log("")
+            }
         </div>
     );
 }
