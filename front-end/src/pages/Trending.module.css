@@ -26,6 +26,7 @@
     border: transparent;
     border-radius: 3px;
     padding: 5px 20px;
+    margin-left: 2%;
 }
 
 .btn{
@@ -35,8 +36,19 @@
     color: white;
     cursor: pointer;
     padding: 5px 20px;
+    margin-left: 2%;
 }
 
-@media (min-width: 280px) and (max-width: 340px){
-    
+@media (min-width: 280px) and (max-width: 500px){
+    .inputs{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: 90%;
+    }
+
+    .input1 , .input2, .btn{
+        margin-top: 4%;
+    }
 }
+
