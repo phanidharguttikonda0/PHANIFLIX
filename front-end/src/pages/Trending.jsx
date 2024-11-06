@@ -4,7 +4,7 @@ import css from './Trending.module.css';
 
 function Trending(props) {
     const [year, setYear] = useState("") ;
-    const [genre, setGenre] = useState() ;
+    const [genre, setGenre] = useState("Horror-27") ;
     const [movies, setMovies] = useState(null) ;
     return (
         <div className={css.trending}>

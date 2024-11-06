@@ -36,3 +36,7 @@
     cursor: pointer;
     padding: 5px 20px;
 }
+
+@media (min-width: 280px) and (max-width: 340px){
+    
+}

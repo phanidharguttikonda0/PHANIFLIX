@@ -5,7 +5,7 @@ import Trailer from '../homepage/Trailer';
 import css from './MovieItem.module.css';
 function MovieItem(props) {
     const [url,setUrl] = useState(null) ;
-    return (
+    return ( 
         <div className={css.movieItem}>
             <img src={`https://image.tmdb.org/t/p/w200${props.data.poster_path}`} alt="" className={css.poster_} />
             <div className={css.moviecontent}>
@@ -17,7 +17,7 @@ function MovieItem(props) {
                 <h6 className={css.imdb}> <img src={imdb} alt="" /> {props.data.popularity.toString().substring(0,3)}/10 </h6>
                 <div className={css.buttons}>
                     <button className={css.p} onClick={() => {
-                        movieTrailer(props.data.title) // Searches for "Inception" trailer on YouTube
+                        movieTrailer(props.data.title) 
                         .then(url => {
                             for(let x = 0 ; x < url.length ; x++){
                                 if(url[x]==='='){
@@ -32,7 +32,7 @@ function MovieItem(props) {
                         
                     }}> Play</button>
                     <button className={css.t} onClick={() =>{
-                        movieTrailer(props.data.title) // Searches for "Inception" trailer on YouTube
+                        movieTrailer(props.data.title)
                         .then(url => {
                             for(let x = 0 ; x < url.length ; x++){
                                 if(url[x]==='='){

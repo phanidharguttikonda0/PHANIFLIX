@@ -52,9 +52,163 @@
     cursor: pointer;
     border-radius: 50px;
     border: transparent;
+    white-space: nowrap; /* Prevent text wrapping */
 }
+
 
 .p{
     background-color: red;
     color: white;
+}
+
+@media (min-width: 280px) and (max-width: 320px){
+    .poster_{
+        width: 90px ;
+    }
+    .overview{
+        font-size: small;
+    }
+    .moviecontent{
+        min-width: 80%;
+    }
+    .imdb{
+        font-size: x-small;
+    }
+    .imdb img{
+        width: 20px;
+        margin-right: 1%;
+    }
+    .p , .t{
+        padding:3px 12px;
+        cursor: pointer;
+        border-radius: 50px;
+        border: transparent;
+        font-size: x-small;
+        margin-left: 3%;
+    }
+    .h6{
+        font-size: small;
+    }
+}
+
+
+@media (min-width: 320px) and (max-width: 450px){
+    .poster_{
+        width: 90px ;
+    }
+    .overview{
+        font-size: small;
+    }
+    .moviecontent{
+        min-width: 80%;
+    }
+    .imdb{
+        font-size: x-small;
+    }
+    .imdb img{
+        width: 20px;
+        margin-right: 1%;
+    }
+    .p , .t{
+        padding:5px 18px;
+        cursor: pointer;
+        border-radius: 50px;
+        border: transparent;
+        font-size: x-small;
+        margin-left: 3%;
+    }
+    .h6{
+        font-size: small;
+    }
+}
+
+@media (min-width: 450px) and (max-width: 600px){
+    .poster_{
+        width: 105px ;
+    }
+    .overview{
+        font-size: small;
+    }
+    .moviecontent{
+        min-width: 80%;
+    }
+    .imdb{
+        font-size: small;
+    }
+    .imdb img{
+        width: 25px;
+        margin-right: 1%;
+    }
+    .p , .t{
+        padding:5px 18px;
+        cursor: pointer;
+        border-radius: 50px;
+        border: transparent;
+        font-size: x-small;
+        margin-left: 3%;
+    }
+    .h6{
+        font-size: small;
+    }
+}
+
+
+@media (min-width: 600px) and (max-width: 700px){
+    .poster_{
+        width: 120px ;
+    }
+    .overview{
+        font-size: small;
+    }
+    .moviecontent{
+        min-width: 80%;
+    }
+    .imdb{
+        font-size: small;
+    }
+    .imdb img{
+        width: 25px;
+        margin-right: 1%;
+    }
+    .p , .t{
+        padding:6px 20px;
+        cursor: pointer;
+        border-radius: 50px;
+        border: transparent;
+        font-size: x-small;
+        margin-left: 3%;
+    }
+    .h6{
+        font-size: small;
+    }
+}
+
+@media (min-width: 700px) and (max-width: 900px){
+    .poster_{
+        width: 130px ;
+    }
+    .overview{
+        font-size: medium;
+    }
+    .moviecontent{
+        min-width: 75%;
+    }
+    .imdb{
+        font-size: small;
+    }
+    .imdb img{
+        width: 25px;
+        margin-right: 1%;
+    }
+    .p , .t{
+        padding:6px 20px;
+        cursor: pointer;
+        border-radius: 50px;
+        border: transparent;
+        font-size: small;
+        margin-left: 3%;
+    }
+    .h6{
+        font-size: small;
+    }
 }

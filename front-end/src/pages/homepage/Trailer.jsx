@@ -13,10 +13,10 @@ function Trailer(props) {
                     playerVars: {
                     autoplay: 1,
                     },
-                }} />
+                }} className={css.yt}/>
             <button onClick={() => {
                     props.setUrl(null) ;
-            }}> Close Player </button>
+            }} className={css.btn}> Close Player </button>
         </div>, document.getElementById('overlay-root') 
         )
     );
