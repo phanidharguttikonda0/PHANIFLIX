@@ -28,6 +28,7 @@ async function getUsers(gmail,password) {
       console.error('Error fetching data:', error);
     } else {
       console.log('User data:', data);
+      console.log('The gmail was ',gmail,' and password was ',password)
       if(data === undefined) return false;
       return true;
     }
@@ -56,6 +57,7 @@ app.post('/sign-up', async (req,res) => {
   const password = req.body.password ;
   const username = req.body.username ;
   const value = await checkDetails(gmail,mobile,password,username) ;
+  console.log(`The out-put for ${gmail} , ${mobile}, ${username} was `, value)
   if(value){
     // we are going to insert
     createUser(gmail,mobile,username,password)
