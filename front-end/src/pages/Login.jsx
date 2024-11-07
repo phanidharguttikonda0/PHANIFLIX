@@ -16,7 +16,7 @@ function Login(props) {
         async function main(gmail,password) {
             try {
                 console.log(gmail, password)
-                const result = await axios.post('https://phaniflix.onrender.com/sign-up', {
+                const result = await axios.post('https://phaniflix.onrender.com/login', {
                     gmail: gmail,
                     password: password
                 });
