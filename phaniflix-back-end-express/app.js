@@ -85,7 +85,7 @@ async function checkDetails(gmail,mobile,password,username){
   .select(`*`)
   .eq('mobile',mobile) ;
   console.log(data1,data2,data3)
-  if (data1 === undefined || data2 === undefined || data3 === undefined) return false;
+  if (data1 !== undefined || data2 !== undefined || data3 !== undefined) return false;
   return true ;
   
 }
