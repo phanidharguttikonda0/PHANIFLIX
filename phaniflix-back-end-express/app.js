@@ -8,7 +8,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 const app = express();
 app.use(express.json());
-
+// https://phaniflix.vercel.app
 app.use(cors({
     origin: 'https://phaniflix.vercel.app',
     methods: ['GET', 'POST'],
@@ -85,8 +85,8 @@ async function checkDetails(gmail,mobile,password,username){
   .select(`*`)
   .eq('mobile',mobile) ;
   console.log(data1,data2,data3)
-  if (data1 === undefined && data2 === undefined && data3 === undefined) return true
-  return false
+  if (data1 === undefined || data2 === undefined || data3 === undefined) return false;
+  return true ;
   
 }
 
