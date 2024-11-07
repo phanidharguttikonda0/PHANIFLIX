@@ -56,7 +56,7 @@ app.post('/sign-up', async (req,res) => {
   const mobile = req.body.mobile ;
   const password = req.body.password ;
   const username = req.body.username ;
-  const value = await checkDetails(gmail,mobile,password,username) ;
+  const value = await checkDetails(gmail,mobile,username) ;
   console.log(`The out-put for ${gmail} , ${mobile}, ${username} was `, value)
   if(value){
     // we are going to insert
@@ -69,7 +69,7 @@ app.post('/sign-up', async (req,res) => {
 })
 
 
-async function checkDetails(gmail,mobile,password,username){
+async function checkDetails(gmail,mobile,username){
   const { data1, error1 } = await supabase
   .from('customers')
   .select(`*`)
@@ -84,9 +84,22 @@ async function checkDetails(gmail,mobile,password,username){
   .from('customers')
   .select(`*`)
   .eq('mobile',mobile) ;
-  console.log(data1,data2,data3)
-  if (data1 !== undefined || data2 !== undefined || data3 !== undefined) return false;
-  return true ;
+  // Log any errors to diagnose if there are issues
+  if (error1 || error2 || error3) {
+    console.error("Error fetching data:", { error1, error2, error3 });
+    return false; // or handle error appropriately
+  }
+
+  // Log results to confirm data returned
+  console.log("Results:", data1, data2, data3);
+
+  // Check if any records were found for the given details
+  if ((data1 && data1.length > 0) || 
+      (data2 && data2.length > 0) || 
+      (data3 && data3.length > 0)) {
+    return false; // A match was found for at least one detail
+  }
+  return true
   
 }
 
