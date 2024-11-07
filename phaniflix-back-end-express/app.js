@@ -29,7 +29,7 @@ async function getUsers(gmail,password) {
     } else {
       console.log('User data:', data);
       console.log('The gmail was ',gmail,' and password was ',password)
-      if(data === undefined) return false;
+      if(data.length === 0) return false;
       return true;
     }
 }
