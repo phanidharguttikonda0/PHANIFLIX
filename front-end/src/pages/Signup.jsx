@@ -36,7 +36,7 @@ function Signup(props) {
                 <button className={css.button} onClick={
                     () => {
                         async function main(){
-                           const result = await axios.post('http://localhost:8080/sign-up',{
+                           const result = await axios.post('https://phaniflix.onrender.com/sign-up',{
                                 gmail: gmail,
                                 mobile: mobile,
                                 password: password,
