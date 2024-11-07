@@ -55,7 +55,7 @@ function Login(props) {
                 <button className={css.button} onClick={
                     () => {
                         setLoad(true)
-                        setTimeout(login_check, 10000)
+                        login_check()
                         
                     }
                 }> Sign In</button>
