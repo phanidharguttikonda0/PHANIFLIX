@@ -70,37 +70,48 @@ app.post('/sign-up', async (req,res) => {
 
 
 async function checkDetails(gmail,mobile,username){
-  const { data1, error1 } = await supabase
-  .from('customers')
-  .select(`*`)
-  .eq('gmail',gmail) ;
+    if(await gmailCheck(gmail) || await usernameCheck(username) || await mobileCheck(mobile)){
+      return false ;
+    }
+    return true ;
+}
 
-  const { data2, error2 } = await supabase
-  .from('customers')
-  .select(`*`)
+async function usernameCheck(username){
+  const {data, error} = await supabase.from('customers').select(`*`)
   .eq('username',username) ;
+  if(error){
+    console.log(`user-name check error was ${error}`)
+  }
+  if(data.length > 0){
+    console.log(data)
+  }
+  return data.length > 0 ;
+}
 
-  const { data3, error3 } = await supabase
+async function gmailCheck(gmail){
+  const {data, error} = await supabase.from('customers').select(`*`)
+  .eq('gmail',gmail) ;
+  if(error){
+    console.log(`gmail check error was ${error}`)
+  }
+  if(data.length > 0){
+    console.log(data)
+  }
+  return data.length > 0 ;
+}
+
+async function mobileCheck(mobile){
+  const { data, error } = await supabase
   .from('customers')
   .select(`*`)
   .eq('mobile',mobile) ;
-  // Log any errors to diagnose if there are issues
-  if (error1 || error2 || error3) {
-    console.error("Error fetching data:", { error1, error2, error3 });
-    return false; // or handle error appropriately
+  if(error){
+    console.log(`mobiel check error was ${error}`)
   }
-
-  // Log results to confirm data returned
-  console.log("Results:", data1, data2, data3);
-
-  // Check if any records were found for the given details
-  if ((data1 && data1.length > 0) || 
-      (data2 && data2.length > 0) || 
-      (data3 && data3.length > 0)) {
-    return false; // A match was found for at least one detail
+  if(data.length > 0){
+    console.log(data)
   }
-  return true
-  
+  return data.length > 0 ;
 }
 
 
