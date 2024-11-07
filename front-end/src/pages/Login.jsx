@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import InValidCredentials from './InValidCredentials';
 import css from './Login.module.css';
 import Logo from './Logo';
+import axios from 'axios' ;
 
 function Login(props) {
     
@@ -11,6 +12,30 @@ function Login(props) {
     const [invalid,setvalid] = useState(false) ;
     const navigate = useNavigate() ;
     
+    const login_check = () => {
+        async function main(gmail,password) {
+            try {
+                console.log(gmail, password)
+                const result = await axios.post('http://localhost:8080/login', {
+                    gmail: gmail,
+                    password: password
+                });
+                console.log('hey2')
+                console.log('The output value was', result.data);
+                if (result.data) {
+                    console.log('hey ahas')
+                    props.setMail(gmail);
+                    navigate('/')
+                } else {
+                    setvalid(true);
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                setvalid(true); // Set invalid state if there's an error
+            }
+        } main(gmail,password)
+    }
+
     return (
         <div className={css.login}>
             <Logo className={css.logo}/>
@@ -24,14 +49,8 @@ function Login(props) {
                 }}/>
                 <button className={css.button} onClick={
                     () => {
-                        if(gmail.length === 0){
-                            console.log("hey")
-                            setvalid(true)
-                        }
-                        else{
-                            props.setMail(gmail) ;
-                            navigate('/') ;
-                        }
+                        
+                        login_check()
                         
                     }
                 }> Sign In</button>
