@@ -28,7 +28,7 @@ async function getUsers(gmail,password) {
       console.error('Error fetching data:', error);
     } else {
       console.log('User data:', data);
-      if(data.length === 0) return false;
+      if(data === undefined) return false;
       return true;
     }
 }
@@ -50,18 +50,57 @@ app.post('/login', async (req, res) => {
 });
 
 
+app.post('/sign-up', async (req,res) => {
+  const gmail = req.body.gmail ;
+  const mobile = req.body.mobile ;
+  const password = req.body.password ;
+  const username = req.body.username ;
+  const value = await checkDetails(gmail,mobile,password,username) ;
+  if(value){
+    // we are going to insert
+    createUser(gmail,mobile,username,password)
+    res.send(true)
+  }else{
+    // we are not going to insert
+    res.send(false)
+  }
+})
+
+
+async function checkDetails(gmail,mobile,password,username){
+  const { data1, error1 } = await supabase
+  .from('customers')
+  .select(`*`)
+  .eq('gmail',gmail) ;
+
+  const { data2, error2 } = await supabase
+  .from('customers')
+  .select(`*`)
+  .eq('username',username) ;
+
+  const { data3, error3 } = await supabase
+  .from('customers')
+  .select(`*`)
+  .eq('mobile',mobile) ;
+  console.log(data1,data2,data3)
+  if (data1 === undefined && data2 === undefined && data3 === undefined) return true
+  return false
+  
+}
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 
-/* 
 
-async function createUser() {
+
+async function createUser(gmail,mobile,username,password) {
     const { data, error } = await supabase
       .from('customers')
-      .insert([{ gmail: 'phanikavya@gmail.com', mobile: '8885858760' ,
-         password: 'Phani@9090', username: 'phanikavya'}]);
+      .insert([{ gmail: gmail, mobile: mobile ,
+         password: password, username: username}]);
     
     if (error) {
       console.error('Error inserting data:', error);
@@ -70,9 +109,6 @@ async function createUser() {
     }
   }
   
-  createUser()
-
-*/
 
 
 
