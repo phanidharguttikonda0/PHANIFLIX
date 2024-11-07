@@ -4,6 +4,7 @@ import InValidCredentials from './InValidCredentials';
 import css from './Login.module.css';
 import Logo from './Logo';
 import axios from 'axios' ;
+import Loading from './Loading';
 
 function Login(props) {
     
@@ -11,6 +12,7 @@ function Login(props) {
     const [password, setPassword] = useState("") ;
     const [invalid,setvalid] = useState(false) ;
     const navigate = useNavigate() ;
+    const [load,setLoad] = useState(false) ;
     
     const login_check = () => {
         async function main(gmail,password) {
@@ -29,9 +31,12 @@ function Login(props) {
                 } else {
                     setvalid(true);
                 }
+                setLoad(false)
             } catch (error) {
                 console.error('Error during login:', error);
+                setLoad(false)
                 setvalid(true); // Set invalid state if there's an error
+                
             }
         } main(gmail,password)
     }
@@ -49,8 +54,8 @@ function Login(props) {
                 }}/>
                 <button className={css.button} onClick={
                     () => {
-                        
-                        login_check()
+                        setLoad(true)
+                        setTimeout(login_check, 10000)
                         
                     }
                 }> Sign In</button>
@@ -61,6 +66,9 @@ function Login(props) {
                     invalid ? <InValidCredentials setvalid={setvalid} data={"invalid credentials"}/> : console.log("")
                 }
             </div>
+            {
+                load ? <Loading /> : console.log("")
+            }
         </div>
     );
 }

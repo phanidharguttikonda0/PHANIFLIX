@@ -4,6 +4,7 @@ import InValidCredentials from './InValidCredentials';
 import css from './Login.module.css';
 import Logo from './Logo';
 import axios from 'axios';
+import Loading from './Loading';
 function Signup(props) {
     const [gmail, setMail] = useState("") ;
     const [password, setPassword] = useState("") ;
@@ -12,6 +13,7 @@ function Signup(props) {
     const [invalid, setinvalid] = useState(false) ;
     const [username,setUserName] = useState("") ;
     const navigate = useNavigate() ;
+    const [load,setload] = useState(false) ;
     
     return (
         <div className={css.login}>
@@ -35,6 +37,7 @@ function Signup(props) {
                 }} />
                 <button className={css.button} onClick={
                     () => {
+                        setload(true)
                         async function main(){
                             // https://phaniflix.onrender.com/sign-up
                            const result = await axios.post('https://phaniflix.onrender.com/sign-up',{
@@ -47,11 +50,15 @@ function Signup(props) {
                             if(result.data){
                                 props.setMail(gmail)
                                 navigate('/')
+                                setload(false)
                             }else{
                                 setinvalid(true) ;
+                                setload(false)
                             }
+
                         }
                         main()
+                        
                     }
                 }> Sign Up</button>
                 <h5 className={css.last}>  have an account <button onClick={() =>{
@@ -61,6 +68,9 @@ function Signup(props) {
                     invalid ? <InValidCredentials data={"details already exists"} setvalid={setinvalid}/> : console.log("")
                 }
             </div>
+            {
+                load ? <Loading /> : ""
+            }
         </div>
     );
 }
