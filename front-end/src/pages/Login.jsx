@@ -11,6 +11,7 @@ function Login(props) {
     const [gmail, setMail] = useState("") ;
     const [password, setPassword] = useState("") ;
     const [invalid,setvalid] = useState(false) ;
+    const [invalidData,setInvalidData] = useState("")
     const navigate = useNavigate() ;
     const [load,setLoad] = useState(false) ;
     
@@ -28,8 +29,11 @@ function Login(props) {
                     console.log('hey ahas')
                     props.setMail(gmail);
                     navigate('/')
+                    setLoad(false)
                 } else {
+                    setInvalidData("invalid credentials")
                     setvalid(true);
+                    setLoad(false)
                 }
                 setLoad(false)
             } catch (error) {
@@ -38,7 +42,22 @@ function Login(props) {
                 setvalid(true); // Set invalid state if there's an error
                 
             }
-        } main(gmail,password)
+        }
+        const gmailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; 
+        if(gmail.match(gmailPattern)){
+            if(password.length >= 6) main(gmail,password)
+            else{
+                setInvalidData("password min of 6")
+                setLoad(false)
+                setvalid(true)
+                
+            }
+        }else{
+            setInvalidData("invalid mail-id")
+            setLoad(false)
+            setvalid(true)
+        }
+        
     }
 
     return (
@@ -54,6 +73,9 @@ function Login(props) {
                 }}/>
                 <button className={css.button} onClick={
                     () => {
+
+                        // using regular expressions over here
+
                         setLoad(true)
                         login_check()
                         
@@ -63,7 +85,7 @@ function Login(props) {
                     navigate('/sign-up')
                 }}> Sign Up</button></h5>
                 {
-                    invalid ? <InValidCredentials setvalid={setvalid} data={"invalid credentials"}/> : console.log("")
+                    invalid ? <InValidCredentials setvalid={setvalid} data={invalidData}/> : console.log("")
                 }
             </div>
             {

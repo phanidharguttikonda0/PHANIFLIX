@@ -8,9 +8,9 @@ import Loading from './Loading';
 function Signup(props) {
     const [gmail, setMail] = useState("") ;
     const [password, setPassword] = useState("") ;
-    const [confirmPassword, setConfirm] = useState("") ;
     const [mobile, setMobile] = useState("") ;
     const [invalid, setinvalid] = useState(false) ;
+    const [invalidData,invalidDataSet] = useState("") ;
     const [username,setUserName] = useState("") ;
     const navigate = useNavigate() ;
     const [load,setload] = useState(false) ;
@@ -26,9 +26,6 @@ function Signup(props) {
                 <input type='password' placeholder='Password' className={css.input} value={password} onChange={(e)=>{
                     setPassword(e.target.value)
                 }}/>
-                <input type='password' placeholder='Confirm Password' className={css.input} value={confirmPassword} onChange={(e) =>{
-                    setConfirm(e.target.value)
-                }} />
                 <input type='number' placeholder='Mobile Number' className={css.input} value={mobile} onChange={(e) =>{
                     setMobile(e.target.value)
                 }} />
@@ -52,20 +49,44 @@ function Signup(props) {
                                 navigate('/')
                                 setload(false)
                             }else{
+                
+                                invalidDataSet("creditionals already exist")
+                                setinvalid(false) ;
                                 setinvalid(true) ;
-                                setload(false)
                             }
 
                         }
-                        main()
-                        
+                        const gmailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; 
+                        if (gmail.match(gmailPattern)) {
+                            const mobilePattern = /^[6-9]{1}[0-9]{9}$/ ;
+                            if(mobile.match(mobilePattern)){
+                                const usernamePattern = /^[a-zA-Z_0-9]{4,25}$/  ;
+                                if(username.match(usernamePattern)){
+                                    if(password.length >= 6){
+                                        main()
+                                    }else{
+                                        invalidDataSet("password length min 6")
+                                    }
+                                }else{
+                                    invalidDataSet("invalid username")
+                                }
+
+                            }else{
+                                invalidDataSet("invalid mobile")
+                            }
+                        }else{
+                            invalidDataSet("invalid gmail")
+                            
+                        }
+                        setload(false)
+                        setinvalid(false)
                     }
                 }> Sign Up</button>
                 <h5 className={css.last}>  have an account <button onClick={() =>{
                     navigate('/login')
                 }}> Sign In</button></h5>
                 {
-                    invalid ? <InValidCredentials data={"details already exists"} setvalid={setinvalid}/> : console.log("")
+                    invalid ? <InValidCredentials data={invalidData} setvalid={setinvalid}/> : console.log("")
                 }
             </div>
             {
