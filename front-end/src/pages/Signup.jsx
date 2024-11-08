@@ -46,12 +46,12 @@ function Signup(props) {
                             console.log('The result was ',result.data) ;
                             if(result.data){
                                 props.setMail(gmail)
-                                navigate('/')
                                 setload(false)
+                                navigate('/')
+                                
                             }else{
-                
                                 invalidDataSet("creditionals already exist")
-                                setinvalid(false) ;
+                                setload(false)
                                 setinvalid(true) ;
                             }
 
@@ -66,20 +66,26 @@ function Signup(props) {
                                         main()
                                     }else{
                                         invalidDataSet("password length min 6")
+                                        setinvalid(true)
+                                        setload(false)
                                     }
                                 }else{
                                     invalidDataSet("invalid username")
+                                    setinvalid(true)
+                                    setload(false)
                                 }
 
                             }else{
                                 invalidDataSet("invalid mobile")
+                                setinvalid(true)
+                                setload(false)
                             }
                         }else{
                             invalidDataSet("invalid gmail")
-                            
+                            setinvalid(true)
+                            setload(false)
                         }
-                        setload(false)
-                        setinvalid(false)
+                        
                     }
                 }> Sign Up</button>
                 <h5 className={css.last}>  have an account <button onClick={() =>{

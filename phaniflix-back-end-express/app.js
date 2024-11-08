@@ -10,9 +10,9 @@ const app = express();
 app.use(express.json());
 // https://phaniflix.vercel.app
 app.use(cors({
-    origin: 'https://phaniflix.vercel.app',
+    origin: ['https://phaniflix.vercel.app','http://localhost:3000'],
     methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Origin', 'Accept'],
   }));
 
 
